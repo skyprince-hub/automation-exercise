@@ -4,7 +4,7 @@ describe('Register User', () => {
   // define javascript object representing a valid existing user
   const existingUser = {
     name: 'John Doe',
-    email: 'johndoe.cy@example.com',
+    email: 'johndoe@example.com',
     password: 'password'
   };
 
@@ -54,6 +54,11 @@ describe('Register User', () => {
   });
 
   it('Register User with Existing Email', () => {
-
+    cy.verifyURL();
+    cy.contentPage('AutomationExercise');
+    cy.signUp();
+    cy.contentPage('New User Signup');
+    cy.register(newUser.name,existingUser.email);
+    cy.messageError('Email Address already exist!');
   });
 })
