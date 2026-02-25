@@ -3,7 +3,7 @@ test plan
 
 auth
 ->~~register-user.cy.js [TC1, TC5]~~
-->login.cy.js [TC2, TC3, TC4]
+->~~login.cy.js [TC2, TC3, TC4]~~
 
 test-cases
 ->verify-testcases.cy.js [TC7]
