@@ -95,9 +95,14 @@ Cypress.Commands.add('fullSignUp', (user) => {
 // command to click any button
 Cypress.Commands.add('clickButton', (qaSelector) => {
     cy.get(`[data-qa="${qaSelector}"]`).click()
-})
+});
 
 // command to click any ahref link
 Cypress.Commands.add('clickLink', (hrefValue) => {
     cy.get(`a[href="${hrefValue}"]`).should('be.visible').click()
-})
+});
+
+// command to verify error message
+Cypress.Commands.add('messageError', (message) => {
+    cy.contains(`${message}`, {matchCase: false}).should('be.visible');
+});
