@@ -26,7 +26,6 @@
 
 // automate login
 Cypress.Commands.add('login', (email, password) => {
-    cy.visit('/');
     cy.get('[data-qa="login-email"]').type(email);
     cy.get('[data-qa="login-password"]').type(password);
     cy.get('[data-qa="login-button"]').click();
@@ -40,13 +39,19 @@ Cypress.Commands.add('register', (name, email) => {
 });
 
 // automate to verify if the url is correct
-Cypress.Commands.add('verifyURL', () => {
-    cy.url().should('eq', Cypress.config().baseUrl);
+Cypress.Commands.add('verifyURL', (path = '') => {
+    const expected = `${Cypress.config().baseUrl}${path}`;
+    cy.url().should('include', expected);
 });
 
 // commands to check content of the page
 Cypress.Commands.add('contentPage', (exptectedContent) => {
     cy.contains(exptectedContent, { matchCase: false }).should('be.visible')
+});
+
+// command to click any ahref link
+Cypress.Commands.add('clickLink', (hrefValue) => {
+    cy.get(`a[href="${hrefValue}"]`).should('be.visible').click()
 });
 
 // command to click the Sign/Login navigation link
@@ -95,11 +100,6 @@ Cypress.Commands.add('fullSignUp', (user) => {
 // command to click any button
 Cypress.Commands.add('clickButton', (qaSelector) => {
     cy.get(`[data-qa="${qaSelector}"]`).click()
-});
-
-// command to click any ahref link
-Cypress.Commands.add('clickLink', (hrefValue) => {
-    cy.get(`a[href="${hrefValue}"]`).should('be.visible').click()
 });
 
 // command to verify error message
