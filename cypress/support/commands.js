@@ -51,7 +51,7 @@ Cypress.Commands.add('contentPage', (exptectedContent) => {
 
 // command to click any ahref link
 Cypress.Commands.add('clickLink', (hrefValue) => {
-    cy.get(`a[href="${hrefValue}"]`).should('be.visible').click()
+    cy.get(`a[href="${hrefValue}"]`).should('be.visible').first().click()
 });
 
 // command to click the Sign/Login navigation link
