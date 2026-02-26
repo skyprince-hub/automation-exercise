@@ -7,11 +7,16 @@ module.exports = defineConfig({
     // ULR of the automationexercises 
     baseUrl: "https://automationexercise.com/",
 
-     // record videos (true = always, false = only failures, 'suppress-flaky' = smart recording)
-     video: true,
+     // how long to wait for elements (in milliseconds)
+    defaultCommandTimeout: 10000, // 10 seconds
+    requestTimeout: 10000,        // 10 seconds
+    responseTimeout: 10000,       // 10 seconds
 
-     // take screenshots on failure
-     screenshotOnRunFailure: true,
+    // record videos (true = always, false = only failures, 'suppress-flaky' = smart recording)
+    video: true,
+
+    // take screenshots on failure
+    screenshotOnRunFailure: true,
 
     setupNodeEvents(on, config) {
       // implement node event listeners here
