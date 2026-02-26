@@ -6,7 +6,7 @@ auth
 ->~~login.cy.js [TC2, TC3, TC4]~~
 
 test-cases
-->verify-testcases.cy.js [TC7]
+->~~verify-testcases.cy.js [TC7]~~
 ->verify-apicases.cy.js []
 
 products
