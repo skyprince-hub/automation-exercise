@@ -7,7 +7,7 @@ auth
 
 test-cases
 ->~~verify-testcases.cy.js [TC7]~~
-->verify-apicases.cy.js []
+->~~verify-apicases.cy.js []~~
 
 products
 ->verify-product.cy.js [TC8, TC9, TC20]
