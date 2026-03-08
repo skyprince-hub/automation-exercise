@@ -49,9 +49,15 @@ Cypress.Commands.add('contentPage', (exptectedContent) => {
     cy.contains(exptectedContent, { matchCase: false }).should('be.visible')
 });
 
+// commands to check the content inside the element container
+Cypress.Commands.add('inContainer', {prevSubject: 'element'}, (subject, expectedContent) => {
+    cy.wrap(subject).contains(expectedContent, {mathCase: false}).should('be.visible');
+    return cy.wrap(subject);
+})
+
 // command to click any ahref link
 Cypress.Commands.add('clickLink', (hrefValue) => {
-    cy.get(`a[href="${hrefValue}"]`).should('be.visible').first().click()
+    cy.get(`a[href*="${hrefValue}"]`).should('be.visible').first().click()
 });
 
 // command to click the Sign/Login navigation link
