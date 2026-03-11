@@ -4,7 +4,7 @@ describe('Verify Products', () => {
     cy.visit('/', { failOnStatusCode: false});
   });
 
-  it.only('Verify All Products and product detail page ', () => {
+  it('Verify All Products and product detail page ', () => {
     cy.verifyURL();
     cy.contentPage('AutomationExercise');
     cy.clickLink('/products');
@@ -22,12 +22,23 @@ describe('Verify Products', () => {
       .inContainer('Brand');
   });
 
-  it('Search Product', () => {
-
+  it.only('Search Product', () => {
+    cy.verifyURL();
+    cy.contentPage('AutomationExercise');
+    cy.clickLink('/products');
+    cy.contentPage('ALL PRODUCTS');
+    // fixture/product.json for fixed, static set of test data
+    cy.fixture('product').then(({mensProduct}) => {
+      cy.get('#search_product').type(mensProduct.name);
+      cy.clickButton('submit_search', 'id');
+    });
+    cy.contentPage('SEARCHED PRODUCTS');
+    cy.get('.features_items').inContainer('Tshirt');
   });
 
   it('Search Products and Verify Cart After Login', () => {
-    cy.fixtures('user').then(({existingUser}) => {
+    //fixtures can be found in the fixture/user.json
+    cy.fixture('user').then(({existingUser}) => {
         cy.login(existingUser.email, existingUser.password);
     });
   })
