@@ -104,8 +104,12 @@ Cypress.Commands.add('fullSignUp', (user) => {
 });
 
 // command to click any button
-Cypress.Commands.add('clickButton', (qaSelector) => {
-    cy.get(`[data-qa="${qaSelector}"]`).click()
+// Cypress.Commands.add('clickButton', (qaSelector) => {
+//     cy.get(`[data-qa="${qaSelector}"]`).click()
+// });
+Cypress.Commands.add('clickButton', (value, attr = 'data-qa') => {
+    cy.get(`[${attr}="${value}"]`)
+    .should('be.visible').click();
 });
 
 // command to verify error message
