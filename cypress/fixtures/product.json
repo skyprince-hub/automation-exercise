@@ -1,0 +1,19 @@
+{
+    "mensProduct": {
+        "name": "Tshirt",
+        "category": "Men",
+        "price": "1500",
+        "availability": "In Stock",
+        "condition": "New",
+        "brand": "Polo"
+    },
+    
+    "womensProduct": {
+        "name": "Dress",
+        "category": "Women",
+        "price": "1500",
+        "availability": "In Stock",
+        "condition": "New",
+        "brand": "Madname"
+    }
+}
