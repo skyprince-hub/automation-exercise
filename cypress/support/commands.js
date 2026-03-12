@@ -108,8 +108,15 @@ Cypress.Commands.add('fullSignUp', (user) => {
 //     cy.get(`[data-qa="${qaSelector}"]`).click()
 // });
 Cypress.Commands.add('clickButton', (value, attr = 'data-qa') => {
-    cy.get(`[${attr}="${value}"]`)
+    cy.get(`[${attr}*="${value}"]`)
+    .first()
     .should('be.visible').click();
+});
+
+// command to click multiple buttons
+Cypress.Commands.add('clickMultiButton', (value, attr = 'data-qa', options = {}) => {
+    cy.get(`[${attr}*="${value}"]`)
+    .should('be.visible').click(options);
 });
 
 // command to verify error message
