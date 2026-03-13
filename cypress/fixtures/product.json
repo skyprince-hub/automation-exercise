@@ -15,5 +15,21 @@
         "availability": "In Stock",
         "condition": "New",
         "brand": "Madname"
+    },
+
+    "firstProduct": {
+        "name": "Blue Top",
+        "price": "500",
+        "availability": "In Stock",
+        "condition": "New",
+        "brand": "Polo"
+    },
+
+    "secondProduct": {
+        "name": "Men Tshirt",
+        "price": "400",
+        "availability": "In Stock",
+        "condition": "New",
+        "brand": "H&M"
     }
 }
