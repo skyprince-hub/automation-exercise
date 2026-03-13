@@ -11,7 +11,7 @@ test-cases
 
 products
 ->~~verify-product.cy.js [TC8, TC9, TC20]~~
-->add-product.cy.js [TC12, TC13, TC22, TC23, TC24]
+->~~add-product.cy.js [TC12, TC13, TC22, TC23, TC24]~~
 ->place-order.cy.js [TC14, TC15, TC16]
 ->remove-products.cy.js [TC17]
 ->product-category.cy.js [TC18, TC19]
