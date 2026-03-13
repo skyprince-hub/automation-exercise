@@ -1,0 +1,9 @@
+{
+    "card": {
+        "name": "Cypress",
+        "number": "123456789",
+        "cvc": "123",
+        "expMonth": "02",
+        "expYear": "2028"
+    }
+}
