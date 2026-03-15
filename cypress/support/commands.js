@@ -51,7 +51,7 @@ Cypress.Commands.add('contentPage', (exptectedContent) => {
 
 // commands to check the content inside the element container
 Cypress.Commands.add('inContainer', {prevSubject: 'element'}, (subject, expectedContent) => {
-    cy.wrap(subject).contains(expectedContent, {mathCase: false}).should('be.visible');
+    cy.wrap(subject).contains(expectedContent, {matchCase: false}).should('be.visible');
     return cy.wrap(subject);
 })
 
@@ -123,3 +123,8 @@ Cypress.Commands.add('clickMultiButton', (value, attr = 'data-qa', options = {})
 Cypress.Commands.add('messageError', (message) => {
     cy.contains(`${message}`, {matchCase: false}).should('be.visible');
 });
+
+// command to verify success message
+Cypress.Commands.add('messageSuccess', (message) => {
+    cy.contains(`${message}`, {matchCase: false}).should('be.visible');
+})
