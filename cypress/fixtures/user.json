@@ -2,6 +2,7 @@
     "existingUser": {
         "name": "Charlie Doe",
         "email": "charlie.cypress@example.com",
-        "password": "charlie_password"
+        "password": "charlie_password",
+        "country": "India"
     }
 }
