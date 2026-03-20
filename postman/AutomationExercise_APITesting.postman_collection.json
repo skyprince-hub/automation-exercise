@@ -1,0 +1,805 @@
+{
+  "info": {
+    "_postman_id": "a57497a3-21c4-4544-909a-f68fd700c2f0",
+    "name": "AutomationExercise_APITesting",
+    "description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52200238",
+    "_collection_link": "https://go.postman.co/collection/52200238-a57497a3-21c4-4544-909a-f68fd700c2f0?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "GET All Products List",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/productsList",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "productsList"
+          ]
+        },
+        "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+      },
+      "response": []
+    },
+    {
+      "name": "POST To All Products List",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Successful POST request\", function () {",
+              "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+              "});",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"name\": \"Add your name in the body\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/productsList",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "productsList"
+          ]
+        },
+        "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+      },
+      "response": []
+    },
+    {
+      "name": "GET All Brands List",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/brandsList",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "brandsList"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "PUT To All Brands List",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/brandsList",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "brandsList"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST To Search Product",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Response code is 200\", function() {\r",
+              "    pm.expect(pm.response.json().responseCode).to.eql(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Search results contain tshirt\", function () {\r",
+              "    //define jsonData here so the script knows what it is\r",
+              "    const jsonData = pm.response.json();\r",
+              "\r",
+              "    //check if the first product's name contains 'tshirt'\r",
+              "    pm.expect(jsonData.products[0].name.toLowerCase()).include('tshirt');\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "search_product",
+              "value": "tshirt",
+              "type": "text",
+              "uuid": "67e5e4cd-17bf-4916-9e03-e43acb091135"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{baseUrl}}/searchProduct",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "searchProduct"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST To Search Product without search_product parameter",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Response code is 400\", function() {\r",
+              "    pm.expect(pm.response.json().responseCode).to.eql(400);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Search results contain tshirt\", function () {\r",
+              "    //define jsonData here so the script knows what it is\r",
+              "    const jsonData = pm.response.json();\r",
+              "\r",
+              "    //check if the first product's name contains 'tshirt'\r",
+              "    pm.expect(jsonData.products[0].name.toLowerCase()).include('tshirt');\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "",
+              "value": "tshirt",
+              "type": "text",
+              "uuid": "86556dd9-2633-4ec6-8ddf-315addde74b5"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{baseUrl}}/searchProduct",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "searchProduct"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST To Verify Login with Valid Details",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function() {\r",
+              "    pm.expect(pm.response.json().responseCode).to.eql(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Response message is User exists!\", function () {\r",
+              "    const jsonData = pm.response.json();\r",
+              "    pm.expect(jsonData.message).to.eql(\"User exists!\");\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "email",
+              "value": "charlie.cypress@example.com",
+              "type": "text",
+              "uuid": "cc35cf5c-42d1-45d9-bfb8-1be76a9b3363"
+            },
+            {
+              "key": "password",
+              "value": "charlie_password",
+              "type": "text",
+              "uuid": "9b50b95d-2fac-458f-93a9-5c264ab39fad"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{baseUrl}}/verifyLogin",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "verifyLogin"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST To Verify Login without Email parameter",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function() {\r",
+              "    pm.expect(pm.response.json().responseCode).to.eql(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Response message is User exists!\", function () {\r",
+              "    const jsonData = pm.response.json();\r",
+              "    pm.expect(jsonData.message).to.eql(\"User exists!\");\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "email",
+              "value": "charlie.cypress@example.com",
+              "type": "text",
+              "uuid": "cc35cf5c-42d1-45d9-bfb8-1be76a9b3363",
+              "disabled": true
+            },
+            {
+              "key": "password",
+              "value": "charlie_password",
+              "type": "text",
+              "uuid": "9b50b95d-2fac-458f-93a9-5c264ab39fad"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{baseUrl}}/verifyLogin",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "verifyLogin"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "DELETE To Verify Login",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "email",
+              "value": "charlie.cypress@example.com",
+              "type": "text",
+              "uuid": "cc35cf5c-42d1-45d9-bfb8-1be76a9b3363",
+              "disabled": true
+            },
+            {
+              "key": "password",
+              "value": "charlie_password",
+              "type": "text",
+              "uuid": "9b50b95d-2fac-458f-93a9-5c264ab39fad"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{baseUrl}}/verifyLogin",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "verifyLogin"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST To Verify Login with Invalid Details",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 404\", function () {\r",
+              "    pm.expect(pm.response.json().responseCode).to.eql(404);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Response message is User not found!\", function () {\r",
+              "    const jsonData = pm.response.json();\r",
+              "    pm.expect(jsonData.message).to.eql(\"User not found!\");\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "email",
+              "value": "user.cypress@example.com",
+              "type": "text",
+              "uuid": "cc35cf5c-42d1-45d9-bfb8-1be76a9b3363"
+            },
+            {
+              "key": "password",
+              "value": "user_password",
+              "type": "text",
+              "uuid": "9b50b95d-2fac-458f-93a9-5c264ab39fad"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{baseUrl}}/verifyLogin",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "verifyLogin"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST To Create/Register User Account",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    // http envelope is 200\r",
+              "    pm.expect(pm.response.code).to.eql(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"User is created successfully\", function() {\r",
+              "    const jsonData = pm.response.json();\r",
+              "    pm.expect(jsonData.responseCode).to.eql(201);\r",
+              "    pm.expect(jsonData.message).to.eql(\"User created!\");\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "name",
+              "value": "Post Man",
+              "type": "text",
+              "uuid": "43896468-4b5c-4743-9d78-145c84cc06a2"
+            },
+            {
+              "key": "email",
+              "value": "postman@apitest.com",
+              "type": "text",
+              "uuid": "832505d4-d8f9-438e-aecb-4351855969f6"
+            },
+            {
+              "key": "password",
+              "value": "postman_password",
+              "type": "text",
+              "uuid": "9b0fa201-6525-40c6-9cee-ede0add1803d"
+            },
+            {
+              "key": "title",
+              "value": "Mr",
+              "type": "text",
+              "uuid": "82f286d7-134d-4739-8b66-11abfc386196"
+            },
+            {
+              "key": "birth_day",
+              "value": "2",
+              "type": "text",
+              "uuid": "cff2e8b5-0520-469b-8483-188082c3cb2f"
+            },
+            {
+              "key": "birth_month",
+              "value": "February",
+              "type": "text",
+              "uuid": "7f655a23-050e-424a-b4ac-4bb2ee87f70a"
+            },
+            {
+              "key": "birth_year",
+              "value": "2004",
+              "type": "text",
+              "uuid": "26801f62-338f-4788-abb1-329f353b2a66"
+            },
+            {
+              "key": "firstname",
+              "value": "post",
+              "type": "text",
+              "uuid": "5ade9942-44c1-4421-b4ff-2d8a06fe3361"
+            },
+            {
+              "key": "lastname",
+              "value": "man",
+              "type": "text",
+              "uuid": "dde9313b-bc3d-4422-9183-f147be64727b"
+            },
+            {
+              "key": "company",
+              "value": "postman",
+              "type": "text",
+              "uuid": "1aac728c-a175-4870-bb76-6fa7b274567e"
+            },
+            {
+              "key": "address1",
+              "value": "82D,Aurora API",
+              "type": "text",
+              "uuid": "388753ee-282b-4345-b8b6-783119c29a08"
+            },
+            {
+              "key": "address2",
+              "value": "address2 API",
+              "type": "text",
+              "uuid": "35054563-5065-4b89-a998-ad90c9803763"
+            },
+            {
+              "key": "country",
+              "value": "Philippines",
+              "type": "text",
+              "uuid": "1c301280-1831-4ead-948a-3e9ffa8f0185"
+            },
+            {
+              "key": "zipcode",
+              "value": "9999",
+              "type": "text",
+              "uuid": "0960e4bf-d1b1-4df1-b460-49f07b545d33"
+            },
+            {
+              "key": "state",
+              "value": "postman state",
+              "type": "text",
+              "uuid": "c0d20360-1764-4e41-a635-ea9c36b611eb"
+            },
+            {
+              "key": "city",
+              "value": "postman city",
+              "type": "text",
+              "uuid": "f6a69e96-e25a-4f11-ac42-85de2a06cb77"
+            },
+            {
+              "key": "mobile_number",
+              "value": "09123456789",
+              "type": "text",
+              "uuid": "24693144-8038-436b-a913-974cbb735141"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{baseUrl}}/createAccount",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "createAccount"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "DELETE METHOD To Delete User Account",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Account deleted successfully\", function () { \r",
+              "    const jsonData = pm.response.json();\r",
+              "    pm.expect(jsonData.responseCode).to.eql(200);\r",
+              "    pm.expect(jsonData.message).to.eql(\"Account deleted!\");\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "email",
+              "value": "postman@apitest.com",
+              "type": "text",
+              "uuid": "ac359075-eda8-4ad2-9e18-1358ae905b38"
+            },
+            {
+              "key": "password",
+              "value": "postman_password",
+              "type": "text",
+              "uuid": "03d06057-07d1-43cc-999a-5e0d4b733131"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{baseUrl}}/deleteAccount",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "deleteAccount"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "PUT METHOD To Update User Account",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status Code is 200\", function (){\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Account Sucessfully Updated\", function() {\r",
+              "    const jsonData = pm.response.json();\r",
+              "    pm.expect(jsonData.message).to.eql(\"User updated!\");\r",
+              "});\r",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "name",
+              "value": "Post Man",
+              "type": "text"
+            },
+            {
+              "key": "email",
+              "value": "postman@apitest.com",
+              "type": "text"
+            },
+            {
+              "key": "password",
+              "value": "postman_password",
+              "type": "text"
+            },
+            {
+              "key": "title",
+              "value": "Mr",
+              "type": "text"
+            },
+            {
+              "key": "birth_day",
+              "value": "2",
+              "type": "text"
+            },
+            {
+              "key": "birth_month",
+              "value": "February",
+              "type": "text"
+            },
+            {
+              "key": "birth_year",
+              "value": "2004",
+              "type": "text"
+            },
+            {
+              "key": "firstname",
+              "value": "post",
+              "type": "text"
+            },
+            {
+              "key": "lastname",
+              "value": "man",
+              "type": "text"
+            },
+            {
+              "key": "company",
+              "value": "postman",
+              "type": "text"
+            },
+            {
+              "key": "address1",
+              "value": "82D,Aurora API",
+              "type": "text"
+            },
+            {
+              "key": "address2",
+              "value": "address2 API",
+              "type": "text"
+            },
+            {
+              "key": "country",
+              "value": "Philippines",
+              "type": "text"
+            },
+            {
+              "key": "zipcode",
+              "value": "9999999",
+              "type": "text"
+            },
+            {
+              "key": "state",
+              "value": "postman state",
+              "type": "text"
+            },
+            {
+              "key": "city",
+              "value": "postman city",
+              "type": "text"
+            },
+            {
+              "key": "mobile_number",
+              "value": "09123456789",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{baseUrl}}/updateAccount",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "updateAccount"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET user account detail by email",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/getUserDetailByEmail?email=postman@apitest.com",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "getUserDetailByEmail"
+          ],
+          "query": [
+            {
+              "key": "email",
+              "value": "postman@apitest.com",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": ""
+    }
+  ]
+}
