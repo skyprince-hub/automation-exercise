@@ -53,9 +53,9 @@ Follow these step-by-step instructions to set up and run the project:
    ```
 
 5. **Run Cypress in GUI**:  
-  ```
-  npx cypress open
-  ```
+   ```
+   npx cypress open
+   ```
 
 6. **Run Newman for API tests**:  
    ```
