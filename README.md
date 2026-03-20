@@ -3,7 +3,8 @@
 
 ## **Project Purpose**
 This project is for testing the website **[AutomationExercise](https://automationexercise.com)** using **Cypress** end-to-end testing.  
-[include image here]
+<img width="1890" height="938" alt="image" src="https://github.com/user-attachments/assets/e448702a-5c1a-43b9-99ca-c856fa4e2d8f" />
+
 
 ## **How the test cases are structured and organized**
 The test cases were organized from AutomationExercise by folders and similarities. The test cases are grouped by feature area and numbered based on AutomationExercise test case IDs so it is easy to find and maintain.
