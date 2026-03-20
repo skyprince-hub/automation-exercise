@@ -33,19 +33,19 @@ A folder was added called **postman** which contains the Postman collection JSON
 Follow these step-by-step instructions to set up and run the project:
 
 1. **Clone the repository**:  
-   ```git clone https://github.com/skyprince-hub/automation-exercise.git```
+   ```git clone https://github.com/skyprince-hub/automation-exercise.git
 
 2. **Install dependencies**:  
-   ```npm install```
+   npm install
 
 3. **Install Newman (optional, for running Postman API test scripts)**:  
-   ```npm install -g newman```
+   npm install -g newman
 
 4. **Run Cypress tests in CLI**:  
-   ```npx cypress run```
+   npx cypress run
 
 5. **Run Cypress in GUI**:  
-  ```npx cypress open```
+  npx cypress open
 
 6. **Run Newman for API tests**:  
-   ```newman run postman/AutomationExercise_APITesting.postman_collection.json```
+   newman run postman/AutomationExercise_APITesting.postman_collection.json
