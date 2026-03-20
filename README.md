@@ -38,16 +38,26 @@ Follow these step-by-step instructions to set up and run the project:
    ```
 
 2. **Install dependencies**:  
+   ```
    npm install
+   ```
 
 3. **Install Newman (optional, for running Postman API test scripts)**:  
+   ```
    npm install -g newman
+   ```
 
 4. **Run Cypress tests in CLI**:  
+   ```
    npx cypress run
+   ```
 
 5. **Run Cypress in GUI**:  
+  ```
   npx cypress open
+  ```
 
 6. **Run Newman for API tests**:  
+   ```
    newman run postman/AutomationExercise_APITesting.postman_collection.json
+   ```
