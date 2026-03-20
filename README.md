@@ -33,7 +33,9 @@ A folder was added called **postman** which contains the Postman collection JSON
 Follow these step-by-step instructions to set up and run the project:
 
 1. **Clone the repository**:  
-   ```git clone https://github.com/skyprince-hub/automation-exercise.git
+   ```
+   git clone https://github.com/skyprince-hub/automation-exercise.git
+   ```
 
 2. **Install dependencies**:  
    npm install
