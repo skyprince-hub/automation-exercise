@@ -799,7 +799,7 @@
   "variable": [
     {
       "key": "baseUrl",
-      "value": ""
+      "value": "https://automationexercise.com/api"
     }
   ]
 }
