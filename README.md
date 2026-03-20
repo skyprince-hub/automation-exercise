@@ -1,4 +1,3 @@
-```markdown
 # AutomationExercise Cypress E2E Project
 #### By Cocamas, John Prince M.
 
@@ -29,5 +28,3 @@ The test cases were organized from AutomationExercise by folders and similaritie
 
 ## **API collection**
 A folder was added called **postman** which contains the Postman collection JSON for the API test cases in AutomationExercise.
-
-```
