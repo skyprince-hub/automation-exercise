@@ -1,23 +1,33 @@
-# automation-exercise
-test plan
+```markdown
+# AutomationExercise Cypress E2E Project
+#### By Cocamas, John Prince M.
 
-auth
-->~~register-user.cy.js [TC1, TC5]~~
-->~~login.cy.js [TC2, TC3, TC4]~~
+## **Project Purpose**
+This project is for testing the website **[AutomationExercise](https://automationexercise.com)** using **Cypress** end-to-end testing.  
+[include image here]
 
-test-cases
-->~~verify-testcases.cy.js [TC7]~~
-->~~verify-apicases.cy.js []~~
+## **How the test cases are structured and organized**
+The test cases were organized from AutomationExercise by folders and similarities. The test cases are grouped by feature area and numbered based on AutomationExercise test case IDs so it is easy to find and maintain.
 
-products
-->~~verify-product.cy.js [TC8, TC9, TC20]~~
-->~~add-product.cy.js [TC12, TC13, TC22, TC23, TC24]~~
-->~~place-order.cy.js [TC14, TC15, TC16]~~
-->~~remove-products.cy.js [TC17]~~
-->~~product-category.cy.js [TC18, TC19]~~
-->~~add-review.cy.js [TC21]~~
+### **Folder structure and test case mapping**
+1. **auth**
+   - `register-user.cy.js` → test case 1, test case 2
+   - `login.cy.js` → test case 2, test case 3, test case 4
+2. **test-cases**
+   - `verify-testcases.cy.js` → test case 7
+   - `verify-apicases.cy.js`
+3. **products**
+   - `verify-product.cy.js` → test case 8, 9, 20
+   - `add-product.cy.js` → test case 12, 13, 22, 23, 24
+   - `place-order.cy.js` → test case 14, 15, 16
+   - `remove-products.cy.js` → test case 17
+   - `product-category.cy.js` → test case 18, 19
+   - `add-review.cy.js` → test case 21
+4. **miscellaneous**
+   - `contact.cy.js` → test case 6
+   - `subscription.cy.js` → test case 10, 11
 
+## **API collection**
+A folder was added called **postman** which contains the Postman collection JSON for the API test cases in AutomationExercise.
 
-miscellaneous 
-->~~contact.cy.js [TC6]~~
-->~~subscription.cy.js [TC10, TC11]~~
+```
