@@ -1,4 +1,4 @@
-# AutomationExercise Cypress E2E Project
+# AutomationExercise Cypress E2E Project with Postman
 #### By Cocamas, John Prince M.
 
 ## **Project Purpose**
@@ -28,3 +28,24 @@ The test cases were organized from AutomationExercise by folders and similaritie
 
 ## **API collection**
 A folder was added called **postman** which contains the Postman collection JSON for the API test cases in AutomationExercise.
+
+## **How to Run the Project**
+Follow these step-by-step instructions to set up and run the project:
+
+1. **Clone the repository**:  
+   `git clone https://github.com/skyprince-hub/automation-exercise.git`
+
+2. **Install dependencies**:  
+   `npm install`
+
+3. **Install Newman (optional, for running Postman API test scripts)**:  
+   `npm install -g newman`
+
+4. **Run Cypress tests in CLI**:  
+   `npx cypress run`
+
+5. **Run Cypress in GUI**:  
+   `npx cypress open`
+
+6. **Run Newman for API tests**:  
+   `newman run postman/AutomationExercise_APITesting.postman_collection.json`
